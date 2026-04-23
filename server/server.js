@@ -25,10 +25,10 @@ const startServer = async () => {
   }
 };
 
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
   res.status(200).json({
     success: true,
-    message: "Smart Business OS Backend Running 🚀"
+    message: 'Smart Business OS Backend Running'
   });
 });
 
