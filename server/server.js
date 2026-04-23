@@ -25,6 +25,13 @@ const startServer = async () => {
   }
 };
 
+app.get('/', (req, res) => {
+  res.json({
+    success: true,
+    message: 'Smart Business OS API Running \uD83D\uDE80'
+  });
+});
+
 startServer();
 
 module.exports = { app, io };
