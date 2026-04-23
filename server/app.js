@@ -9,7 +9,7 @@ const { env } = require('./shared/config/env');
 const { logger } = require('./shared/config/logger');
 const { errorHandler } = require('./shared/middleware/errorHandler');
 
-const authRoutes = require('./modules/auth/route');
+const authRoutes = require("./routes/authRoutes");
 const transactionRoutes = require('./modules/transactions/route');
 const analyticsRoutes = require('./modules/analytics/route');
 const aiRoutes = require('./modules/ai/route');
@@ -57,7 +57,7 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-app.use('/api/auth', authRoutes);
+app.use("/api/auth", authRoutes);
 app.use('/api/transactions', transactionRoutes);
 app.use('/api/analytics', analyticsRoutes);
 app.use('/api/ai', aiRoutes);
