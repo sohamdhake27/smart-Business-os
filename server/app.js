@@ -19,10 +19,16 @@ const app = express();
 
 app.use(helmet({ crossOriginEmbedderPolicy: false, contentSecurityPolicy: false }));
 app.use(cors({
-  origin: env.clientUrl,
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH']
+  origin: [
+    'http://localhost:5173',
+    'https://smart-business-os-client.vercel.app'
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
+
+app.options('*', cors());
 
 app.use('/api/', rateLimit({ windowMs: 15 * 60 * 1000, max: 500 }));
 app.use('/api/auth/', rateLimit({ windowMs: 15 * 60 * 1000, max: 20 }));
