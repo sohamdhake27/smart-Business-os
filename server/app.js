@@ -17,6 +17,13 @@ const notificationRoutes = require('./modules/notifications/route');
 
 const app = express();
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Smart Business OS Backend Running 🚀"
+  });
+});
+
 app.use(helmet({ crossOriginEmbedderPolicy: false, contentSecurityPolicy: false }));
 app.use(cors({
   origin: [
